@@ -38,4 +38,10 @@ public class UsuarioServiceImpl implements UsuarioService{
         Optional<Usuario> optionalUsuario = userDao.findByCorreoAndClave(correo, clave);
         return optionalUsuario.orElse(null);
     }
+
+    @Override
+    public Usuario existeCorreo(String correo) {
+        Optional<Usuario> optionalUsuario = userDao.findByCorreo(correo);
+        return optionalUsuario.orElse(null);
+    }
 }
