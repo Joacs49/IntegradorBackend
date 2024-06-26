@@ -84,6 +84,7 @@ public class controlador {
             usuarioEncontrado.setAltura(usuarioActualizado.getAltura());
             usuarioEncontrado.setEdad(usuarioActualizado.getEdad());
             usuarioEncontrado.setPeso(usuarioActualizado.getPeso());
+            usuarioEncontrado.setClave(usuarioActualizado.getClave());
 
             usuarioService.guardar(usuarioEncontrado);
 
