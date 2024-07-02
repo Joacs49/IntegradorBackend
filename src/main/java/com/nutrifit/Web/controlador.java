@@ -21,7 +21,7 @@ public class controlador {
 
     @Autowired
     private UsuarioServiceImpl usuarioService;
-    
+
 
     @PostMapping("/register")
     public ResponseEntity<?> registrarUsuario(@Valid @RequestBody Usuario usuario, Errors errors) {
