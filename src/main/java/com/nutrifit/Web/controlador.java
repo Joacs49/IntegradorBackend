@@ -15,7 +15,6 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api")
 public class controlador {
 
@@ -54,6 +53,7 @@ public class controlador {
         }
         return ResponseEntity.ok().body("Sesión cerrada correctamente");
     }
+
 
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@RequestBody Usuario usuario) {

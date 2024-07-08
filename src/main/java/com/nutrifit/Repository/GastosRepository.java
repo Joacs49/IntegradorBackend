@@ -1,8 +1,9 @@
 
-package com.nutrifit.Service;
+package com.nutrifit.Repository;
 
 import com.nutrifit.Clases.Usuario;
 import com.nutrifit.Dao.IGastos;
+import com.nutrifit.Service.UsuarioRowMapper;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public class GastosServiceImpl implements IGastos {
+public class GastosRepository implements IGastos {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -33,18 +34,18 @@ public class GastosServiceImpl implements IGastos {
     @Override
     public boolean ingresarGasto(Long idUsuario, double monto) {
         try {
+            
             // Buscar el nombre del usuario por su ID
             Optional<Usuario> optionalUsuario = findById(idUsuario);
             if (optionalUsuario.isPresent()) {
                 Usuario usuario = optionalUsuario.get();
                 String nombreUsuario = usuario.getNombre(); // Obtener el nombre del usuario
 
-                // Llamar al stored procedure pasando los parámetros correctos
                 String sql = "CALL INGRESAR_GASTO(?,?,?)";
                 jdbcTemplate.update(sql, nombreUsuario, monto, idUsuario);
                 return true;
             } else {
-                return false; // Usuario no encontrado
+                return false; 
             }
         } catch (Exception e) {
             e.printStackTrace();

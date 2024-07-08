@@ -1,14 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.nutrifit.Web;
 
 import com.nutrifit.Dao.IPlandecomida;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -32,5 +31,12 @@ public class ControladorPlan {
     @GetMapping("/recomendaciones/{idUsuario}")
     public String obtenerRecomendacionesIMC(@PathVariable long idUsuario) {
         return plandecomidaService.obtenerRecomendacionesIMC(idUsuario);
+    }
+    
+    @GetMapping("/busqueda/{idUsuario}/{nombrePlato}")
+    public List<String> obtenerRecomendacionesPorNombre(@PathVariable long idUsuario, @PathVariable String nombrePlato) {
+        List<String> recomendaciones = plandecomidaService.obtenerRecomendacionesNombre(idUsuario, nombrePlato);
+        
+        return recomendaciones;
     }
 }

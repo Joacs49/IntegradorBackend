@@ -1,4 +1,3 @@
-
 package com.nutrifit.Web;
 
 import com.nutrifit.Clases.Receta;
@@ -15,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/recetas")
 public class ControladorReceta {
-    
+
     @Autowired
     private IReceta recetaService;
 
@@ -34,5 +33,15 @@ public class ControladorReceta {
             return ResponseEntity.notFound().build();
         }
     }
-    
+
+    @GetMapping("/detallePorNombre/{nombrePlato}")
+    public ResponseEntity<Map<String, Object>> obtenerDetalleRecetaPorNombre(@PathVariable String nombrePlato) {
+        Map<String, Object> detalle = recetaService.obtenerDetalleRecetaPorNombre(nombrePlato);
+        
+        if (detalle != null) {
+            return ResponseEntity.ok(detalle);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
