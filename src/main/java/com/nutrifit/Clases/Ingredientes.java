@@ -6,12 +6,15 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import java.io.Serializable;
 import lombok.Data;
 
 @Entity
 @Data
 @Table(name = "INGREDIENTES")
-public class Ingredientes {
+public class Ingredientes implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

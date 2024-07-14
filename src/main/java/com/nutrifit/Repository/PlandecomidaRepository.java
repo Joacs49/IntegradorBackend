@@ -1,5 +1,7 @@
 package com.nutrifit.Repository;
 
+import com.nutrifit.Clases.PlandeComida;
+import com.nutrifit.Clases.Receta;
 import com.nutrifit.Clases.Usuario;
 import com.nutrifit.Dao.IUsuario;
 import java.util.ArrayList;
@@ -102,6 +104,29 @@ public class PlandecomidaRepository {
         } catch (Exception e) {
             e.printStackTrace();
             return new ArrayList<>();
+        }
+    }
+
+    public boolean save(PlandeComida plan, long user) {
+        try {
+            String sql = "CALL INGRESAR_PLAN(?, ?, ?)";
+            jdbcTemplate.update(sql, plan.getUsuario(), plan.getPresupuesto(), user);
+
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean recetaplan(long receta, long user, String dias) {
+        try {
+            String sql = "CALL RECETAPLAN(?, ?, ?)";
+            jdbcTemplate.update(sql, receta, user,dias);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
     }
 

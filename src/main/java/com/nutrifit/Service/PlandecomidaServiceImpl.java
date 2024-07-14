@@ -1,6 +1,8 @@
 package com.nutrifit.Service;
 
 import com.nutrifit.Clases.PlandeComida;
+import com.nutrifit.Clases.Receta;
+import com.nutrifit.Clases.Usuario;
 import com.nutrifit.Dao.IPlandecomida;
 import com.nutrifit.Repository.PlandecomidaRepository;
 import java.util.List;
@@ -13,6 +15,11 @@ public class PlandecomidaServiceImpl implements IPlandecomida {
 
     @Autowired
     private PlandecomidaRepository planRepository;
+    
+    @Override
+    public boolean save(PlandeComida plan, long usuario) {
+        return planRepository.save(plan, usuario);
+    }
 
     @Override
     public double obtenerIMC(long idUsuario) {
@@ -45,7 +52,7 @@ public class PlandecomidaServiceImpl implements IPlandecomida {
     }
 
     @Override
-    public boolean save(PlandeComida plandeComida) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean recetaplan(long receta, long user, String dias) {
+        return planRepository.recetaplan(receta, user, dias);
     }
 }
