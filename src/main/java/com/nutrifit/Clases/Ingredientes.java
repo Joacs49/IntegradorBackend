@@ -29,5 +29,4 @@ public class Ingredientes implements Serializable {
 
     @ManyToOne
     private Receta receta;
-
 }
