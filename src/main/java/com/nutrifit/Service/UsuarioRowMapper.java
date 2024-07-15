@@ -5,8 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 
-
-public class UsuarioRowMapper implements RowMapper<Usuario>{
+public class UsuarioRowMapper implements RowMapper<Usuario> {
 
     @Override
     public Usuario mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -21,5 +20,4 @@ public class UsuarioRowMapper implements RowMapper<Usuario>{
         usuario.setClave(rs.getString("CLAVE"));
         return usuario;
     }
-    
 }

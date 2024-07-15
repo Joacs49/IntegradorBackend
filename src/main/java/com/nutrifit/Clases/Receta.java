@@ -1,4 +1,3 @@
-
 package com.nutrifit.Clases;
 
 import jakarta.persistence.Entity;
@@ -16,12 +15,12 @@ import lombok.Data;
 @Data
 @Table(name = "RECETA")
 public class Receta implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_receta;
-    
+
     private String nombreReceta;
 }

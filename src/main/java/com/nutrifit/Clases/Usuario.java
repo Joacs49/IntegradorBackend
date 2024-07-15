@@ -42,5 +42,4 @@ public class Usuario implements Serializable {
 
     @NotEmpty(message = "Correo no puede estar vacío")
     private String clave;
-
 }
