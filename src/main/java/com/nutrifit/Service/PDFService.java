@@ -22,7 +22,6 @@ public class PDFService {
         document.addPage(page);
 
         PDPageContentStream contentStream = new PDPageContentStream(document, page);
-
         try {
             ClassPathResource fondoResource = new ClassPathResource("fotos/fondo.png");
             PDImageXObject backgroundImage = PDImageXObject.createFromByteArray(document, fondoResource.getInputStream().readAllBytes(), "fondo");
