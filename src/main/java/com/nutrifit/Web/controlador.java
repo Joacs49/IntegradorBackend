@@ -21,7 +21,6 @@ public class controlador {
     @Autowired
     private UsuarioServiceImpl usuarioService;
 
-
     @PostMapping("/register")
     public ResponseEntity<?> registrarUsuario(@Valid @RequestBody Usuario usuario, Errors errors) {
         if (errors.hasErrors()) {
@@ -35,9 +34,9 @@ public class controlador {
             }
 
             boolean nuevoUsuario = usuarioService.save(usuario);
-            
+
             return ResponseEntity.status(HttpStatus.CREATED).body(nuevoUsuario);
-            
+
         } catch (DuplicateKeyException e) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("El correo electrónico ya está en uso");
         } catch (Exception e) {
@@ -54,6 +53,14 @@ public class controlador {
         return ResponseEntity.ok().body("Sesión cerrada correctamente");
     }
 
+    @PostMapping("/usuarioCuenta")
+    public ResponseEntity<?> getCuentaUsuario(@RequestBody Usuario usuario) {
+        Optional<Usuario> usuarioEncontrado = usuarioService.findById(usuario.getIdUsuario());
+        if (usuarioEncontrado.isPresent()) {
+            return ResponseEntity.ok(usuarioEncontrado.get());
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Ocurrió un problema: usuario no encontrado");
+    }
 
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@RequestBody Usuario usuario) {
@@ -83,12 +90,12 @@ public class controlador {
     @GetMapping("/usuario/{correo}")
     public ResponseEntity<?> getUsuarioPorCorreo(@PathVariable String correo, @RequestParam String clave) {
         Optional<Usuario> usuarioAutenticado = usuarioService.findByCorreoAndClave(correo, clave);
-        
+
         Usuario existe = usuarioAutenticado.orElse(null);
 
         if (existe != null) {
             return ResponseEntity.ok().body(existe);
-            
+
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado");
         }
@@ -119,9 +126,9 @@ public class controlador {
 
             try {
                 usuarioService.modificarUsuario(existe, usuarioActualizado);
-                
+
                 return ResponseEntity.ok().body("Datos actualizados correctamente");
-                
+
             } catch (RuntimeException e) {
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al actualizar el usuario");
             }

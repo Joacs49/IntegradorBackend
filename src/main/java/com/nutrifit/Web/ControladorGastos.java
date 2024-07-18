@@ -36,14 +36,8 @@ public class ControladorGastos {
     private PDFService pdfService;
 
     @GetMapping("/usuario/{id}")
-    public Optional<Usuario> findById(@PathVariable Long id) {
-        return gastosService.findById(id);
-    }
-
-    @PostMapping("/ingresar")
-    public boolean ingresarGasto(@RequestParam Long idUsuario,
-            @RequestParam double monto) {
-        return gastosService.ingresarGasto(idUsuario, monto);
+    public List<Gastos> findById(@PathVariable Long id) {
+        return gastosService.findGastosByUsuarioId(id);
     }
     
     @GetMapping("/usuario/{id}/pdf")
