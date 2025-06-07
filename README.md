@@ -47,7 +47,7 @@ Editar
 ./mvnw spring-boot:run
 
 📌 Endpoints Destacados
-Método	Ruta	Descripción
+Método	Ruta	Descripción /n
 POST	/api/auth/register	Registro de nuevo usuario
 POST	/api/auth/login	Inicio de sesión con JWT
 GET	/api/plans	Obtener planes de comida
