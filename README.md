@@ -30,20 +30,15 @@
 Configura tu base de datos y crea el archivo .env o edita application.properties:
 
 properties
-Copiar
-Editar
-spring.datasource.url=jdbc:mysql://localhost:3306/nutrifit_db
-spring.datasource.username=root
-spring.datasource.password=tu_clave
 
-spring.jpa.hibernate.ddl-auto=update
-jwt.secret=clave-secreta
+- spring.datasource.url=jdbc:mysql://localhost:3306/nutrifit_db
+- spring.datasource.username=root
+- spring.datasource.password=tu_clave
+- spring.jpa.hibernate.ddl-auto=update
+- jwt.secret=clave-secreta
 
 Construye y ejecuta el proyecto:
 
-bash
-Copiar
-Editar
 ./mvnw spring-boot:run
 
 📌 Endpoints Destacados
