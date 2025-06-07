@@ -25,30 +25,8 @@
 - **Swagger/OpenAPI** (opcional)
 - **PDF export:** iText / Apache PDFBox (si implementado)
 
-## 📁 Estructura del Proyecto
-
-nutrifit-backend/
-├── src/
-│ ├── main/
-│ │ ├── java/com/nutrifit/
-│ │ │ ├── controllers/
-│ │ │ ├── services/
-│ │ │ ├── models/
-│ │ │ ├── repositories/
-│ │ │ └── security/
-│ │ └── resources/
-│ │ └── application.properties
-
-bash
-Copiar
-Editar
-
 ## ⚙️ Instalación
 
-1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/tu-usuario/nutrifit-backend.git
-   cd nutrifit-backend
 Configura tu base de datos y crea el archivo .env o edita application.properties:
 
 properties
@@ -72,12 +50,6 @@ bash
 Copiar
 Editar
 http://localhost:8080/swagger-ui.html
-🔐 Seguridad
-Implementación de JWT para proteger endpoints.
-
-Middleware para validar tokens y roles.
-
-Acceso diferenciado según el tipo de usuario (por ejemplo: USER, ADMIN).
 
 📌 Endpoints Destacados
 Método	Ruta	Descripción
