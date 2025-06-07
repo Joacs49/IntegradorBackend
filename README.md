@@ -47,25 +47,20 @@ Editar
 ./mvnw spring-boot:run
 
 📌 Endpoints Destacados
-Método	Ruta	Descripción /n
-POST	/api/auth/register	Registro de nuevo usuario
-POST	/api/auth/login	Inicio de sesión con JWT
-GET	/api/plans	Obtener planes de comida
-POST	/api/plans/generate	Generar nuevo plan
-GET	/api/recipes	Obtener lista de recetas
-POST	/api/budget	Registrar presupuesto
-GET	/api/history	Ver historial de presupuestos
-GET	/api/history/pdf	Descargar historial en formato PDF
+Método	Ruta	Descripción
+- POST	/api/auth/register	Registro de nuevo usuario
+- POST	/api/auth/login	Inicio de sesión con JWT
+- GET	/api/plans	Obtener planes de comida
+- POST	/api/plans/generate	Generar nuevo plan
+- GET	/api/recipes	Obtener lista de recetas
+- POST	/api/budget	Registrar presupuesto
+- GET	/api/history	Ver historial de presupuestos
+- GET	/api/history/pdf	Descargar historial en formato PDF
 
 📦 Dependencias Importantes
-spring-boot-starter-web
-
-spring-boot-starter-security
-
-spring-boot-starter-data-jpa
-
-jjwt para manejo de JWT
-
-mysql-connector-java
-
-lombok
+- spring-boot-starter-web
+- spring-boot-starter-security
+- spring-boot-starter-data-jpa
+- jjw para manejo de JWT
+- mysql-connector-java
+- lombok
