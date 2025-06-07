@@ -38,18 +38,13 @@ spring.datasource.password=tu_clave
 
 spring.jpa.hibernate.ddl-auto=update
 jwt.secret=clave-secreta
+
 Construye y ejecuta el proyecto:
 
 bash
 Copiar
 Editar
 ./mvnw spring-boot:run
-(Opcional) Accede a Swagger:
-
-bash
-Copiar
-Editar
-http://localhost:8080/swagger-ui.html
 
 📌 Endpoints Destacados
 Método	Ruta	Descripción
